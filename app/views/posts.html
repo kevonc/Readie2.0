@@ -1,0 +1,11 @@
+<form ng-submit="submitPost()">
+  <input type="text" ng-model="post.url" />
+  <input type="date" ng-model="post.date" />
+  <input type="text" ng-model="post.star" />
+  <input type="text" ng-model="post.category" />
+  <input type="submit" value="Add Post" />
+</form>
+
+<div ng-repeat="(postId, post) in posts"></div>
+  <a href="{{ post.url }}">{{ post.url }}</a>
+</div>
