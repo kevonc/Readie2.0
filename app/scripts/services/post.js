@@ -1,14 +1,13 @@
 'use strict';
 
 app.factory('Post', function ($firebase, FIREBASE_URL) {
-
 	var ref = new Firebase(FIREBASE_URL + 'posts');
-
 	var posts = $firebase(ref);
 
   var Post = {
     all: posts,
     create: function (post) {
+      post.date = new Date();
       return posts.$add(post);
     },
     find: function (postId) {
@@ -18,6 +17,6 @@ app.factory('Post', function ($firebase, FIREBASE_URL) {
       return posts.$remove(postId);
     }
   };
- 
+
   return Post;
 });
