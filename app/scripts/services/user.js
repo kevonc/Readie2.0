@@ -9,11 +9,18 @@ app.factory('User', function ($firebase, FIREBASE_URL, $rootScope) {
       if (authUser) {
         $rootScope.currentUser = users.$child(authUser.id);
         $rootScope.currentUser.displayName = displayName;
-        // console.log($rootScope.currentUser);
+      }
+    },
+    findById: function (id) {
+      if (id) {
+        return users.$child(id);
       }
     },
     getCurrent: function () {
       return $rootScope.currentUser;
+    },
+    signedIn: function () {
+      return $rootScope.currentUser !== undefined;
     }
   };
 

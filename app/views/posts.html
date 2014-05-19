@@ -1,4 +1,5 @@
-<div ng-repeat="(postId, post) in posts">
+<div ng-repeat="(postId, post) in posts" ng-show="signedIn() && post.owner === currentUser.$id">
   {{ post.date | date:'yyyy-MM-dd' }} | {{ post.category }} | {{ post.star }} | <a href="{{ post.url }}">Read Now</a>
-  | <a ng-click="deletePost(postId)">delete</a>
+  | 
+  <a ng-click="deletePost(postId)">delete</a>
 </div>
